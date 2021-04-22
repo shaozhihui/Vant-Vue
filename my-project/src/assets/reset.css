@@ -4,4 +4,4 @@ li{list-style: none;}
 a{color: black;text-decoration: none;}
 input,select{font-weight: normal;font-style: normal;font-stretch: normal;font-variant: normal;}
 button{overflow: visible;}
-html{font-size:12px}
+html,body{height: 100%;}
