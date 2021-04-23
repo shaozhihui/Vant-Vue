@@ -18,9 +18,10 @@
             </van-col>
         </van-row>
     </div>
-</template>.
+</template>
 
 <script>
+
 import  searchProduct from "./searchProduct";
 export default {
     name:'search',

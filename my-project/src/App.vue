@@ -4,7 +4,7 @@
     <!-- 底部导航页 -->
     <van-tabbar v-model="active" route v-show="this.$store.state.TabShowData">
       <van-tabbar-item replace to="/home" icon="wap-home-o">首页</van-tabbar-item>
-      <van-tabbar-item replace to="/search"  icon="search">分类</van-tabbar-item>
+      <van-tabbar-item replace to="/searchProduct"  icon="search">分类</van-tabbar-item>
       <van-tabbar-item replace to="/frends"  icon="friends-o">值得买</van-tabbar-item>
       <van-tabbar-item replace to="/shopcar"  icon="cart-o">购物车</van-tabbar-item>
       <van-tabbar-item replace to="/user"  icon="user-o">个人</van-tabbar-item>
@@ -34,6 +34,7 @@ export default {
 </script>
 
 <style scoped>
+
 #app{
   background-color: #EEEEEE;
   height: 100%;
