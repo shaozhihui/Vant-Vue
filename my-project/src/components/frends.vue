@@ -32,13 +32,47 @@
                                     <p class="slide_tag">{{item.tag2}}</p>
                                 </div>
                             </div>
-                          
                         </swiper-slide>
-                       
                     </swiper>
                      <div class="swiper-scrollbar"></div>
                 </div>
             </div>
+        </div>
+
+        <!-- 商品瀑布流 -->
+        <div class="ProductWarp">
+           
+            <div class="box">
+                <div class="product" v-for="(item,inx) in leftArr" :key="inx">
+                    <img :src="item.imgur" alt="" width="100%">
+                    <div class="product_tittle">{{item.tittle}}</div>
+                    <div class="product_foot">
+                        <div class="foot_left">
+                            <img :src="item.categoryic" alt="">
+                            {{item.category}}
+                        </div>
+                        <div class="foot_right">
+                            <van-icon name="eye-o" size="15px"/> {{item.watch}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="product" v-for="(item,inx) in rightArr" :key="inx">
+                    <img :src="item.imgur" alt="" width="100%">
+                    <div class="product_tittle">{{item.tittle}}</div>
+                    <div class="product_foot">
+                        <div class="foot_left">
+                            <img :src="item.categoryic" alt="">
+                            {{item.category}}
+                        </div>
+                        <div class="foot_right">
+                            <van-icon name="eye-o" size="15px"/> {{item.watch}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
         </div>
     </div>
 </template>
@@ -48,10 +82,6 @@
 
 export default {
     name:'frends',
-    components: {
-   
-    },
-   
     data(){
         return{
             swiperOptions: {
@@ -121,8 +151,67 @@ export default {
                     tag1:'时尚买手力荐',
                     tag2:'探访严选工厂'
                 }
+            ],
+            ProductArr:[
+                {
+                    ix:0,
+                    imgur:'https://yanxuan.nosdn.127.net/7b2f96aced02b8b2255c9505eb11dae7.jpg?imageView&thumbnail=345y191.66666666666669&quality=85',
+                    tittle:'网红零食、性价比日用……老用户都在回购',
+                    category:'好物大赏',
+                    categoryic:'http://yanxuan.nosdn.127.net/3769578a6595d8e3c61d1186123141e0.png?imageView&quality=65&thumbnail=48y48',
+                    watch:'5390K'
+                },
+                {
+                    ix:1,
+                    imgur:'https://yanxuan.nosdn.127.net/906617e9b6801478d3a932ec16afc3a6.jpg?imageView&thumbnail=345y345&quality=85',
+                    tittle:'连衣裙、T恤、凉鞋已上新，pick你的夏日穿搭！',
+                    category:'好物大赏',
+                    categoryic:'http://yanxuan.nosdn.127.net/3769578a6595d8e3c61d1186123141e0.png?imageView&quality=65&thumbnail=48y48',
+                    watch:'17K'
+                },
+                {
+                    ix:2,
+                    imgur:'https://yanxuan.nosdn.127.net/4862b35e373d7e77c2b4624aa468194d.jpg?imageView&thumbnail=345y345&quality=85',
+                    tittle:'2021春夏出行必备时尚单品！',
+                    category:'好物大赏',
+                    categoryic:'http://yanxuan.nosdn.127.net/3769578a6595d8e3c61d1186123141e0.png?imageView&quality=65&thumbnail=48y48',
+                    watch:'14k'
+                },
+                {
+                    ix:3.,
+                    imgur:'https://yanxuan.nosdn.127.net/98760dcd7609e0734886b73509488fc4.jpg?imageView&thumbnail=345y194.30208333333334&quality=85',
+                    tittle:'健康实力派好牛奶',
+                    category:'选妹',
+                    categoryic:'http://yanxuan.nosdn.127.net/d0929d6affc4f1272da63f13fac44c53.jpg?imageView&quality=65&thumbnail=48y48',
+                    watch:'10k'
+                },
+                {
+                    ix:4,
+                    imgur:'https://yanxuan.nosdn.127.net/e86502d24bc98b68d976ef398c3601f7.jpg?imageView&thumbnail=345y191.66666666666669&quality=85',
+                    tittle:'夏凉被“焕新”术',
+                    category:'好物大赏',
+                    categoryic:'http://yanxuan.nosdn.127.net/3769578a6595d8e3c61d1186123141e0.png?imageView&quality=65&thumbnail=48y48',
+                    watch:'10'
+                },
+                {
+                    ix:5,
+                    imgur:'https://yanxuan.nosdn.127.net/def8a68b7e86001c0d52e78e52cd2a9c.jpg?imageView&thumbnail=345y345&quality=85',
+                    tittle:'简约又好看的夏日T恤推荐',
+                    category:'好物大赏',
+                    categoryic:'http://yanxuan.nosdn.127.net/3769578a6595d8e3c61d1186123141e0.png?imageView&quality=65&thumbnail=48y48',
+                    watch:'10'
+                }
             ]
         }
+    },
+    computed:{
+        leftArr:function(){ 
+            return this.ProductArr.filter(v=>v.ix%2 === 0)
+        },
+        rightArr:function(){ 
+            return this.ProductArr.filter(v=>v.ix%2 !== 0)
+        }
+       
     },
     methods:{
         gohome(){
@@ -243,5 +332,44 @@ export default {
 }
 .slide_m{
     margin-top: 1.25rem;
+}
+.ProductWarp{
+    background: #eee;
+    width: 100%;
+    padding: .9375rem 0 3.625rem .9375rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 21rem;
+}
+
+.box{
+    width: 50%;
+    background-color: #eee;
+    padding-right: .9375rem;
+}
+.product{
+    border-radius: .5rem;
+    overflow: hidden;
+    margin-top: .9375rem;
+    width: 100%;
+    background-color: #fff;
+}
+.product_tittle{
+    font-size: .875rem;
+    padding: .625rem .625rem .625rem .625rem;
+}
+.product_foot{
+    color: #7f7f7f;
+    padding: .625rem .625rem .9375rem .625rem;
+    height: 2.8125rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: .75rem;
+    align-items: center;
+}
+.foot_left img{
+    width: 1.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
 }
 </style>

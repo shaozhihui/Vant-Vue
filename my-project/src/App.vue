@@ -32,8 +32,7 @@ export default {
   }
 }
 </script>
-
-<style scoped>
+<style>
 
 #app{
   background-color: #EEEEEE;
